@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DirectoryMonitor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-	<Grid>
-		<ListBox Name="listBox" Height="225" HorizontalAlignment="Left" Margin="12,43,0,0" VerticalAlignment="Top" Width="491" />
-		<Button Name="btnClear" Width="100" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,274,18,0" Content="Clear" />
+        Title="Directory Monitor" Height="321.177" Width="531.863">
+	<Grid Margin="0,0,0,-20">
+		<ListBox Name="listBox" Height="225" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="497" />
+		<Button Name="btnClear" Width="100" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,240,10,0" Content="Clear" />
 	</Grid>
 </Window>

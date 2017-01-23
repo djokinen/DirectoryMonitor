@@ -4,6 +4,8 @@ using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -76,6 +78,8 @@ namespace DirectoryMonitor
 						//give a notification in the application about the change in folder
 						listBox.Items.Add("New File: " + CreatedFileName + ";  Created :" + DateTime.Now.ToString());
 
+						// _sendEmail(CreatedFileName, defaultDirectory);
+
 						return;
 						//if image file is created ,to open it in ms paint application
 						if (extension == ".jpg" || extension == ".png")
@@ -113,6 +117,32 @@ namespace DirectoryMonitor
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.ToString());
+			}
+		}
+
+		public static void _sendEmail(string fileName, string directory)
+		{
+			string to = "djokinen@ryerson.ca";
+			string from = "noreply-ao@ryerson.ca";
+			string subject = "New AutoEavl file";
+			string body = String.Format("File: {0}\nDirectory: {1}", fileName, directory);
+			MailMessage mailMessage = new MailMessage(from, to, subject, body);
+			SmtpClient smtpClient = new SmtpClient("localhost");
+			// smtpClient.Timeout = 100;
+			// Credentials are necessary if the server requires the client to authenticate before it will send e-mail on the client's behalf.
+			smtpClient.Credentials = CredentialCache.DefaultNetworkCredentials;
+
+			try
+			{
+				smtpClient.Send(mailMessage);
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine("Exception caught in CreateTimeoutTestMessage(): {0}", ex.ToString());
+			}
+			finally
+			{
+				smtpClient.Dispose();
 			}
 		}
 
