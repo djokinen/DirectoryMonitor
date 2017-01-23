@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:DirectoryMonitor"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+	<Grid>
+		<ListBox Name="listBox" Height="225" HorizontalAlignment="Left" Margin="12,43,0,0" VerticalAlignment="Top" Width="491" />
+		<Button Name="btnClear" Width="100" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,274,18,0" Content="Clear" />
+	</Grid>
 </Window>
