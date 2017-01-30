@@ -43,6 +43,8 @@ namespace DirectoryMonitor
 		private void BtnClear_Click(object sender, RoutedEventArgs e)
 		{
 			listBox.Items.Clear();
+			MainForm mainForm = new MainForm();
+			mainForm.Show();
 		}
 
 		private void _initializeMonitor()
