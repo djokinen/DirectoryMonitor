@@ -82,36 +82,42 @@ namespace DirectoryMonitor
 
 						// _sendEmail(CreatedFileName, defaultDirectory);
 
-						return;
+						// return;
+						MessageBoxResult messageBoxResult; // = MessageBox.Show("Open file in Excel?", "Open File", MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.Cancel, MessageBoxOptions.DefaultDesktopOnly);
+
 						//if image file is created ,to open it in ms paint application
 						if (extension == ".jpg" || extension == ".png")
 						{
-							Process.Start("mspaint", defaultDirectory + "\\" + CreatedFileName);
+							// Process.Start("mspaint", defaultDirectory + "\\" + CreatedFileName);
 						}
 						//if video file is created ,to open it in windows mwdia player application
 						else if (extension == ".wmv" || extension == ".mov" || extension == ".avi")
 						{
-							Process.Start("wmplayer", defaultDirectory + "\\" + CreatedFileName);
+							// Process.Start("wmplayer", defaultDirectory + "\\" + CreatedFileName);
 						}
 						//if ms word file is created ,to open it in ms word application
 						else if (extension == ".docx")
 						{
-							Process.Start("WINWORD.EXE", defaultDirectory + "\\" + CreatedFileName);
+							// Process.Start("WINWORD.EXE", defaultDirectory + "\\" + CreatedFileName);
 						}
 						//if excel file is created ,to open it in excel application
-						else if (extension == ".xlsx")
+						else if (extension == ".xlsx" || extension == ".xls" || extension == ".csv")
 						{
-							Process.Start("excel.exe", defaultDirectory + "\\" + CreatedFileName);
+							messageBoxResult = MessageBox.Show("Open file in Excel?", "Open File", MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.Cancel, MessageBoxOptions.DefaultDesktopOnly);
+							if (messageBoxResult == MessageBoxResult.OK)
+							{
+								Process.Start(@"excel.exe", defaultDirectory + "\\" + CreatedFileName);
+							}
 						}
 						//if pdf file is created ,to open it in PDF application
 						else if (extension == ".pdf")
 						{
-							Process.Start("AcroRd32.exe", defaultDirectory + "\\" + CreatedFileName);
+							// Process.Start("AcroRd32.exe", defaultDirectory + "\\" + CreatedFileName);
 						}
 						//if Flash file is created ,to open it in web browser
 						else if (extension == ".swf")
 						{
-							Process.Start("iexplore.EXE", defaultDirectory + "\\" + CreatedFileName);
+							// Process.Start("iexplore.EXE", defaultDirectory + "\\" + CreatedFileName);
 						}
 					}));
 				}
